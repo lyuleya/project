@@ -12,5 +12,12 @@
     "email": "qwe@gmail.com",
     "password": "qwe",
     "role": "user"
+  },
+  {
+    "id": 3,
+    "name": "asd",
+    "email": "asd@gmail.com",
+    "password": "asd",
+    "role": "user"
   }
 ]
