@@ -1,0 +1,13 @@
+.room-page {
+  padding: 60px 20px;
+}
+
+.room-title {
+  font-size: 2rem;
+  color: var(--color-blue-300) !important;
+}
+
+.room-price {
+  font-size: 1.5rem;
+  color: var(--color-blue-300) !important;
+}
