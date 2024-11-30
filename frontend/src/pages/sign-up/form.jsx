@@ -29,7 +29,7 @@ const SignUpForm = () => {
     }
 
     try {
-      await registerUser(formData.name, formData.email, formData.password);
+      await registerUser(formData.name, formData.email, formData.password, formData.role);
       navigate("/sign-in");
     } catch (error) {
       setErrorMessage("User already exists or registration failed.");

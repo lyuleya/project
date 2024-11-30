@@ -10,6 +10,11 @@ export const loginUser = async (email, password) => {
   return response.data;
 };
 
-export const registerUser = async (name, email, password) => {
-  await axios.post(`${API_URL}/auth/sign-up`, { name, email, password });
+export const registerUser = async (name, email, password, role) => {
+  await axios.post(`${API_URL}/auth/sign-up`, { name, email, password, role });
+};
+
+export const fetchRooms = async () => {
+  const response = await axios.get(`${API_URL}/rooms`);
+  return response.data;
 };

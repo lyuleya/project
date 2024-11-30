@@ -19,5 +19,22 @@
     "email": "asd@gmail.com",
     "password": "asd",
     "role": "user"
+  },
+  {
+    "id": 4,
+    "name": {
+      "name": "sjdhfk",
+      "email": "sdf@gmail",
+      "password": "dfgdf",
+      "role": "admin"
+    },
+    "role": "user"
+  },
+  {
+    "id": 5,
+    "name": "sdffgdfg",
+    "email": "dfg@gmail.com",
+    "password": "dfghfgh",
+    "role": "admin"
   }
 ]
