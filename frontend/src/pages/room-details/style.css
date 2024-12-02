@@ -1,13 +1,9 @@
-.room-page {
-  padding: 60px 20px;
-}
-
-.room-title {
+.room-details-title {
   font-size: 2rem;
-  color: var(--color-blue-300) !important;
+  color: var(--color-blue-300);
 }
 
-.room-price {
+.room-details-price {
   font-size: 1.5rem;
-  color: var(--color-blue-300) !important;
+  color: var(--color-blue-300);
 }

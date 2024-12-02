@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SignInForm from "./form";
 
 const SignIn = ({ onLogin }) => (
-  <main className="container mt-5 auth-page">
+  <main className="container my-5 auth-page">
     <h1 className="hidden-title">Sign In</h1>
     <SignInForm onLogin={onLogin} />
     <div className="mt-3 text-center">

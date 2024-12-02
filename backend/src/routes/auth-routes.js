@@ -3,7 +3,6 @@ import userService from "../services/user-service.js";
 
 const router = express.Router();
 
-// Логін
 router.post("/sign-in", (req, res) => {
   const { email, password } = req.body;
 
@@ -18,7 +17,6 @@ router.post("/sign-in", (req, res) => {
   }
 });
 
-// Реєстрація
 router.post("/sign-up", (req, res) => {
   try {
     const newUser = userService.registerUser(req.body);

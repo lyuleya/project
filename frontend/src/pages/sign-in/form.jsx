@@ -69,7 +69,7 @@ const SignInForm = ({ onLogin }) => {
           {errorMessage}
         </div>
       )}
-      <button type="submit" className="btn btn-primary w-100 custom-button">
+      <button type="submit" className="btn w-100 custom-button">
         Sign In
       </button>
     </form>
