@@ -1,24 +1,33 @@
-import React, { useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import BookingModal from "../../components/booking-modal";
-import { createBooking } from "../../modules/api";
 import "./style.css";
+import { createBooking, fetchRoomDetails } from "../../modules/api";
 
-const RoomDetails = ({ rooms, user }) => {
+const RoomDetails = ({ user }) => {
   const { roomId } = useParams();
+  const [room, setRoom] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const toggleModal = useCallback(() => {
+  useEffect(() => {
+    const loadRoom = async () => {
+      try {
+        const roomData = await fetchRoomDetails(roomId);
+        setRoom(roomData);
+      } catch (error) {
+        console.debug("Error fetching room:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadRoom();
+  }, [roomId]);
+
+  const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
-  }, []);
-
-  const room = rooms.find((room) => room.id === roomId);
-
-  if (!room) {
-    return <Navigate to="/" />;
-  }
-
-  const { title, description, guests, price, image } = room;
+  };
 
   const handleAddBooking = async (newBooking) => {
     try {
@@ -32,14 +41,21 @@ const RoomDetails = ({ rooms, user }) => {
       };
 
       await createBooking(bookingData);
-
-      console.log("Booking saved successfully:", bookingData);
       alert("Booking saved successfully!");
     } catch (error) {
-      console.error("Error saving booking:", error);
-      alert("Failed to save booking.");
+      alert(error.response?.data?.message || "Failed to save booking.");
     }
   };
+
+  if (isLoading) {
+    return <main></main>;
+  }
+
+  if (!room) {
+    return <Navigate to="/" />;
+  }
+
+  const { title, description, guests, price, image } = room;
 
   return (
     <main className="container my-5">

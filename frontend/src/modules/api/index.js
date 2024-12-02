@@ -19,13 +19,13 @@ export const fetchRooms = async () => {
   return response.data;
 };
 
-export const fetchRoomDetails = async (roomId) => {
-  const response = await axios.get(`${API_URL}/rooms/${roomId}`);
+export const fetchFilteredRooms = async (filters) => {
+  const response = await axios.post(`${API_URL}/rooms/available`, filters);
   return response.data;
 };
 
-export const fetchBookings = async () => {
-  const response = await axios.get(`${API_URL}/bookings`);
+export const fetchRoomDetails = async (roomId) => {
+  const response = await axios.get(`${API_URL}/rooms/${roomId}`);
   return response.data;
 };
 

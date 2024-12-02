@@ -37,7 +37,7 @@ const App = () => {
         const data = await fetchRooms();
         setRooms(data);
       } catch (error) {
-        console.error("Error fetching rooms:", error);
+        console.debug("Error fetching rooms:", error);
       } finally {
         setLoading(false);
       }
@@ -71,22 +71,12 @@ const App = () => {
         <Route
           path="/rooms/:roomId"
           element={
-            user ? (
-              <RoomDetails rooms={rooms} user={user} />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
+            user ? <RoomDetails user={user} /> : <Navigate to="/sign-in" />
           }
         />
         <Route
           path="/bookings"
-          element={
-            user ? (
-              <Bookings user={user} rooms={rooms} />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
+          element={user ? <Bookings user={user} /> : <Navigate to="/sign-in" />}
         />
         <Route path="*" element={<Navigate to={user ? "/" : "/sign-in"} />} />
       </Routes>

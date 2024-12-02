@@ -33,7 +33,7 @@ const SignUpForm = () => {
       navigate("/sign-in");
     } catch (error) {
       setErrorMessage("User already exists or registration failed.");
-      console.error("Registration error:", error);
+      console.debug("Registration error:", error);
     }
   };
 

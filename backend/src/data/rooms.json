@@ -5,6 +5,7 @@
     "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
     "guests": 1,
     "price": 145,
+    "count": 2,
     "image": "/rooms/room1.jpg"
   },
   {
@@ -13,6 +14,7 @@
     "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
     "guests": 2,
     "price": 795,
+    "count": 3,
     "image": "/rooms/room1.jpg"
   },
   {
@@ -21,6 +23,7 @@
     "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
     "guests": 3,
     "price": 260,
+    "count": 1,
     "image": "/rooms/room1.jpg"
   },
   {
@@ -29,6 +32,7 @@
     "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
     "guests": 3,
     "price": 595,
+    "count": 2,
     "image": "/rooms/room1.jpg"
   },
   {
@@ -37,6 +41,7 @@
     "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
     "guests": 2,
     "price": 395,
+    "count": 3,
     "image": "/rooms/room1.jpg"
   },
   {
@@ -45,6 +50,7 @@
     "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
     "guests": 1,
     "price": 195,
+    "count": 1,
     "image": "/rooms/room1.jpg"
   }
 ]

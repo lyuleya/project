@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { fetchUserBookings, deleteBooking } from "../../modules/api";
+import {
+  fetchUserBookings,
+  fetchRoomDetails,
+  deleteBooking,
+} from "../../modules/api";
 import BookingItem from "./item";
 import "./style.css";
 
-const Bookings = ({ user, rooms }) => {
+const Bookings = ({ user }) => {
   const [bookings, setBookings] = useState([]);
+  const [rooms, setRooms] = useState({});
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -12,8 +17,17 @@ const Bookings = ({ user, rooms }) => {
       try {
         const userBookings = await fetchUserBookings(user.id);
         setBookings(userBookings);
+
+        const roomsList = {};
+        for (const booking of userBookings) {
+          if (!roomsList[booking.roomId]) {
+            const roomDetails = await fetchRoomDetails(booking.roomId);
+            roomsList[booking.roomId] = roomDetails;
+          }
+        }
+        setRooms(roomsList);
       } catch (error) {
-        console.error("Error fetching bookings:", error);
+        console.debug("Error fetching bookings:", error);
       } finally {
         setLoading(false);
       }
@@ -27,7 +41,7 @@ const Bookings = ({ user, rooms }) => {
       await deleteBooking(bookingId);
       setBookings((prev) => prev.filter((booking) => booking.id !== bookingId));
     } catch (error) {
-      console.error("Error deleting booking:", error);
+      console.debug("Error deleting booking:", error);
     }
   };
 
@@ -43,7 +57,7 @@ const Bookings = ({ user, rooms }) => {
       ) : (
         <div className="row g-3">
           {bookings.map((booking) => {
-            const room = rooms.find((room) => room.id === booking.roomId);
+            const room = rooms[booking.roomId];
             return (
               <BookingItem
                 key={booking.id}

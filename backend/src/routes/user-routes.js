@@ -8,7 +8,8 @@ router.get("/", (req, res) => {
     const users = userService.getAllUsers();
     res.json(users);
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.debug("Error fetching users:", error);
+    res.status(500).json({ message: "Failed to fetch users." });
   }
 });
 
