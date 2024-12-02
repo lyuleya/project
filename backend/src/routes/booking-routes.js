@@ -8,8 +8,17 @@ router.post("/", (req, res) => {
     const newBooking = bookingService.addBooking(req.body);
     res.status(201).json({ message: "Booking created", booking: newBooking });
   } catch (error) {
-    console.error("Error creating booking:", error);
-    res.status(500).json({ message: error.message });
+    console.debug("Error creating booking:", error);
+
+    if (error.message === "ROOM_NOT_AVAILABLE") {
+      res
+        .status(400)
+        .json({ message: "No available rooms for the selected dates." });
+    } else {
+      res
+        .status(500)
+        .json({ message: "Failed to create booking. Please try again later." });
+    }
   }
 });
 
@@ -18,8 +27,8 @@ router.get("/", (req, res) => {
     const allBookings = bookingService.getAllBookings();
     res.status(200).json(allBookings);
   } catch (error) {
-    console.error("Error fetching bookings:", error);
-    res.status(500).json({ message: "Error fetching bookings" });
+    console.debug("Error fetching bookings:", error);
+    res.status(500).json({ message: "Failed to fetch bookings." });
   }
 });
 
@@ -30,8 +39,8 @@ router.get("/user/:userId", (req, res) => {
     const userBookings = bookingService.getUserBookings(userId);
     res.status(200).json(userBookings);
   } catch (error) {
-    console.error("Error fetching user bookings:", error);
-    res.status(500).json({ message: "Error fetching user bookings" });
+    console.debug("Error fetching user bookings:", error);
+    res.status(500).json({ message: "Failed to fetch user bookings." });
   }
 });
 
@@ -42,8 +51,8 @@ router.delete("/:bookingId", (req, res) => {
     bookingService.deleteBooking(bookingId);
     res.status(200).json({ message: "Booking deleted successfully" });
   } catch (error) {
-    console.error("Error deleting booking:", error);
-    res.status(500).json({ message: "Error deleting booking" });
+    console.debug("Error deleting booking:", error);
+    res.status(500).json({ message: "Failed to delete booking." });
   }
 });
 

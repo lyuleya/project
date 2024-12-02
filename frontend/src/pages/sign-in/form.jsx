@@ -29,7 +29,7 @@ const SignInForm = ({ onLogin }) => {
       navigate("/");
     } catch (error) {
       setErrorMessage("Invalid email or password.");
-      console.error("Login error:", error);
+      console.debug("Login error:", error);
     }
   };
 

@@ -18,16 +18,10 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const selectedDate = new Date(date);
-    const today = new Date();
-
-    if (selectedDate <= today) {
-      alert("Please select a future date.");
-      return;
-    }
 
     const newBooking = {
       id: Date.now().toString(),
@@ -38,8 +32,12 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
       status: Math.random() > 0.5 ? "Paid" : "Pending",
     };
 
-    onAddBooking(newBooking);
-    onClose();
+    try {
+      await onAddBooking(newBooking);
+      onClose();
+    } catch (error) {
+      alert(error.response?.data?.message || "Failed to book the room.");
+    }
   };
 
   const todayDate = new Date().toISOString().split("T")[0];

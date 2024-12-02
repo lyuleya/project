@@ -13,7 +13,10 @@ router.post("/sign-in", (req, res) => {
     }
     res.json({ id: user.id, name: user.name, role: user.role });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.debug("Error during sign-in:", error);
+    res
+      .status(500)
+      .json({ message: "Failed to sign in. Please try again later." });
   }
 });
 
@@ -22,7 +25,10 @@ router.post("/sign-up", (req, res) => {
     const newUser = userService.registerUser(req.body);
     res.status(201).json(newUser);
   } catch (error) {
-    res.status(409).json({ message: error.message });
+    console.debug("Error during sign-up:", error);
+    res
+      .status(409)
+      .json({ message: "User already exists or invalid data provided." });
   }
 });
 
