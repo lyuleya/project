@@ -1,0 +1,11 @@
+.booking-modal {
+    max-width: 400px;
+    border-radius: 10px;
+    position: relative;
+  }
+  
+  .booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }

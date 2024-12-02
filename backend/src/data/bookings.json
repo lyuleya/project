@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1733150676688",
+    "userId": "2",
+    "roomId": "3",
+    "date": "2024-12-25T00:00:00.000Z",
+    "nights": 5,
+    "totalPrice": 1300,
+    "status": "Pending"
+  },
+  {
+    "id": "1733150727418",
+    "userId": "2",
+    "roomId": "1",
+    "date": "2444-04-07T00:00:00.000Z",
+    "nights": 30,
+    "totalPrice": 4350,
+    "status": "Pending"
+  }
+]

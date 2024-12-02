@@ -1,17 +1,17 @@
 import fs from "fs";
 
+const USERS_FILE = "./src/data/users.json";
+
 const loadUsers = () => {
-  const data = fs.readFileSync("./src/data/users.json", "utf-8");
+  const data = fs.readFileSync(USERS_FILE, "utf-8");
   return JSON.parse(data);
 };
 
 const saveUsers = (users) => {
-  fs.writeFileSync("./src/data/users.json", JSON.stringify(users, null, 2));
+  fs.writeFileSync(USERS_FILE, JSON.stringify(users, null, 2), "utf-8");
 };
 
-const getAllUsers = () => {
-  return loadUsers();
-};
+const getAllUsers = () => loadUsers();
 
 const authenticateUser = (email, password) => {
   const users = loadUsers();
@@ -28,7 +28,7 @@ const registerUser = ({ name, email, password, role = "user" }) => {
   }
 
   const newUser = {
-    id: users.length + 1,
+    id: Date.now().toString(),
     name,
     email,
     password,

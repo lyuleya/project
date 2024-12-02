@@ -1,19 +1,27 @@
 import express from "express";
-import fs from "fs";
+import roomService from "../services/room-service.js";
 
 const router = express.Router();
 
-const loadRooms = () => {
-  const data = fs.readFileSync("./src/data/rooms.json", "utf-8");
-  return JSON.parse(data);
-};
-
 router.get("/", (req, res) => {
   try {
-    const rooms = loadRooms();
+    const rooms = roomService.loadRooms();
     res.json(rooms);
   } catch (error) {
     res.status(500).json({ message: "Failed to load rooms." });
+  }
+});
+
+router.get("/:roomId", (req, res) => {
+  const { roomId } = req.params;
+  try {
+    const room = roomService.getRoomById(roomId);
+    if (!room) {
+      return res.status(404).json({ message: "Room not found" });
+    }
+    res.json(room);
+  } catch (error) {
+    res.status(500).json({ message: "Failed to fetch room data." });
   }
 });
 

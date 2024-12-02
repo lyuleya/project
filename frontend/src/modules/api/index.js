@@ -10,11 +10,35 @@ export const loginUser = async (email, password) => {
   return response.data;
 };
 
-export const registerUser = async (name, email, password, role) => {
-  await axios.post(`${API_URL}/auth/sign-up`, { name, email, password, role });
+export const registerUser = async (name, email, password) => {
+  await axios.post(`${API_URL}/auth/sign-up`, { name, email, password });
 };
 
 export const fetchRooms = async () => {
   const response = await axios.get(`${API_URL}/rooms`);
   return response.data;
+};
+
+export const fetchRoomDetails = async (roomId) => {
+  const response = await axios.get(`${API_URL}/rooms/${roomId}`);
+  return response.data;
+};
+
+export const fetchBookings = async () => {
+  const response = await axios.get(`${API_URL}/bookings`);
+  return response.data;
+};
+
+export const fetchUserBookings = async (userId) => {
+  const response = await axios.get(`${API_URL}/bookings/user/${userId}`);
+  return response.data;
+};
+
+export const createBooking = async (bookingData) => {
+  const response = await axios.post(`${API_URL}/bookings`, bookingData);
+  return response.data;
+};
+
+export const deleteBooking = async (bookingId) => {
+  await axios.delete(`${API_URL}/bookings/${bookingId}`);
 };

@@ -9,15 +9,12 @@ const RoomCard = ({ room }) => {
       <div className="card-body">
         <h5 className="card-title room-card-title">{room.title}</h5>
         <p className="card-text">
-          <small className="text-muted">Level: {room.level}</small>
+          <small className="text-muted">Guests: {room.guests}</small>
         </p>
         <p className="card-text">
           <strong>${room.price} per night</strong>
         </p>
-        <Link
-          to={`/rooms/${room.id}`}
-          className="btn btn-primary custom-button"
-        >
+        <Link to={`/rooms/${room.id}`} className="btn custom-button">
           Details
         </Link>
       </div>

@@ -12,5 +12,5 @@
 }
 
 .room-card-title {
-  border-color: var(--color-blue-300);
+  color: var(--color-blue-300);
 }

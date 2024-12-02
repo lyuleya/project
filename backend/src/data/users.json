@@ -1,40 +1,30 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Admin",
     "email": "admin@example.com",
     "password": "admin123",
     "role": "admin"
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "User",
     "email": "qwe@gmail.com",
     "password": "qwe",
     "role": "user"
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "asd",
     "email": "asd@gmail.com",
     "password": "asd",
     "role": "user"
   },
   {
-    "id": 4,
-    "name": {
-      "name": "sjdhfk",
-      "email": "sdf@gmail",
-      "password": "dfgdf",
-      "role": "admin"
-    },
+    "id": "4",
+    "name": "zxc",
+    "email": "zxc@gmail.com",
+    "password": "zxc",
     "role": "user"
-  },
-  {
-    "id": 5,
-    "name": "sdffgdfg",
-    "email": "dfg@gmail.com",
-    "password": "dfghfgh",
-    "role": "admin"
   }
 ]
