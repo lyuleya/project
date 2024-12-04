@@ -31,7 +31,7 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
       date: selectedDate.toISOString(),
       nights,
       totalPrice,
-      status: Math.random() > 0.5 ? "Paid" : "Pending",
+      status: Math.random() > 0.5 ? "paid" : "pending",
     };
 
     try {

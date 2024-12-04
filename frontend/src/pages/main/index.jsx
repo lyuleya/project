@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import RoomList from "../../components/room-list";
 import BookingList from "../../components/booking-list";
 import Filter from "../../components/filter";
 import { fetchFilteredRooms, fetchFilteredBookings } from "../../modules/api";
 import { validateFilters } from "../../utils";
 
-const Main = ({ role, initialData }) => {
+const Main = ({ role, initialData, filterResetTrigger }) => {
   const isAdmin = role === "admin";
 
   const [filters, setFilters] = useState(
@@ -36,6 +36,20 @@ const Main = ({ role, initialData }) => {
     }
   };
 
+  const handleClearFilters = () => {
+    setFilters(
+      isAdmin
+        ? { startDate: "", endDate: "", status: "all" }
+        : { startDate: "", endDate: "", guests: 1 }
+    );
+    setFilteredData(initialData);
+    setErrors({});
+  };
+
+  useEffect(() => {
+    handleClearFilters();
+  }, [filterResetTrigger]);
+
   return (
     <main className="container my-5">
       <h1 className="hidden-title">
@@ -48,6 +62,7 @@ const Main = ({ role, initialData }) => {
         errors={errors}
         setErrors={setErrors}
         onApply={handleFilter}
+        onClear={handleClearFilters}
       />
       {filteredData.length > 0 ? (
         isAdmin ? (

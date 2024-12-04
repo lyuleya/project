@@ -63,7 +63,15 @@ const RoomDetails = ({ user }) => {
       <h1 className="text-center mb-5">Room Details</h1>
       <div className="row g-4">
         <div className="col-md-6">
-          <img src={image} className="img-fluid rounded shadow" alt={title} />
+          <img
+            src={image}
+            sizes="(max-width: 768px) 400px, 800px"
+            width="800"
+            height="600"
+            loading="lazy"
+            className="img-fluid rounded shadow"
+            alt={title}
+          />
         </div>
         <div className="col-md-6">
           <div className="d-flex flex-column justify-content-between h-100 border p-4 rounded shadow-sm">

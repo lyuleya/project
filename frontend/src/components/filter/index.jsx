@@ -2,7 +2,15 @@ import React from "react";
 import { FILTER_FIELDS } from "./constants";
 import "./style.css";
 
-const Filter = ({ role, filters, setFilters, errors, setErrors, onApply }) => {
+const Filter = ({
+  role,
+  filters,
+  setFilters,
+  errors,
+  setErrors,
+  onApply,
+  onClear,
+}) => {
   const fields = FILTER_FIELDS[role];
 
   const handleInputChange = (e) => {
@@ -21,22 +29,13 @@ const Filter = ({ role, filters, setFilters, errors, setErrors, onApply }) => {
     }
   };
 
-  const handleClearFilters = () => {
-    const clearedFilters = {};
-    fields.forEach((field) => {
-      clearedFilters[field.name] = field.defaultValue || "";
-    });
-    setFilters(clearedFilters);
-    setErrors({});
-  };
-
   return (
     <div className="mb-4 p-3 border rounded position-relative">
       <button
         type="button"
         className="btn-close position-absolute top-0 end-0 m-2"
         aria-label="Clear filters"
-        onClick={handleClearFilters}
+        onClick={onClear}
         title="Clear filters"
       ></button>
       <div className="row g-3">
