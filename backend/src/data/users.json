@@ -2,27 +2,27 @@
   {
     "id": "1",
     "name": "Admin",
-    "email": "admin@example.com",
-    "password": "admin123",
+    "email": "admin@gmail.com",
+    "password": "admin",
     "role": "admin"
   },
   {
     "id": "2",
-    "name": "User",
+    "name": "User QWE",
     "email": "qwe@gmail.com",
     "password": "qwe",
     "role": "user"
   },
   {
     "id": "3",
-    "name": "asd",
+    "name": "User ASD",
     "email": "asd@gmail.com",
     "password": "asd",
     "role": "user"
   },
   {
     "id": "4",
-    "name": "zxc",
+    "name": "User ZXC",
     "email": "zxc@gmail.com",
     "password": "zxc",
     "role": "user"
