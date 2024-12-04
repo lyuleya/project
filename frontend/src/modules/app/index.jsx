@@ -21,6 +21,7 @@ const App = () => {
   const [user, setUser] = useState(getUserFromLocalStorage());
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [filterResetTrigger, setFilterResetTrigger] = useState(false);
   const isAdmin = user && user.role === "admin";
 
   const handleLogin = (userData) => {
@@ -31,6 +32,10 @@ const App = () => {
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem("user");
+  };
+
+  const handleLogoClick = () => {
+    setFilterResetTrigger((prev) => !prev);
   };
 
   useEffect(() => {
@@ -57,13 +62,21 @@ const App = () => {
 
   return (
     <Router>
-      <Header user={user} onLogout={handleLogout} />
+      <Header
+        user={user}
+        onLogout={handleLogout}
+        onLogoClick={handleLogoClick}
+      />
       <Routes>
         <Route
           path="/"
           element={
             user ? (
-              <Main role={user.role} initialData={data} />
+              <Main
+                role={user.role}
+                initialData={data}
+                filterResetTrigger={filterResetTrigger}
+              />
             ) : (
               <Navigate to="/sign-in" />
             )

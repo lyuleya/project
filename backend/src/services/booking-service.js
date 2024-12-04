@@ -68,7 +68,7 @@ const getFilteredBookings = (filters) => {
   const bookings = loadBookings();
   const { startDate, endDate, status } = filters;
 
-  return bookings.filter((booking) => {
+  const filteredBookings = bookings.filter((booking) => {
     const bookingStart = new Date(booking.date);
     const bookingEnd = new Date(bookingStart);
     bookingEnd.setDate(bookingStart.getDate() + booking.nights);
@@ -79,6 +79,18 @@ const getFilteredBookings = (filters) => {
     const matchesStatus = status === "all" || booking.status === status;
 
     return isWithinDates && matchesStatus;
+  });
+
+  return filteredBookings.map((booking) => {
+    const user = userService.getUserById(booking.userId);
+    const room = roomService.getRoomById(booking.roomId);
+
+    return {
+      ...booking,
+      userName: user ? user.name : "Unknown",
+      userEmail: user ? user.email : "No email",
+      roomName: room ? room.title : "Unknown Room",
+    };
   });
 };
 

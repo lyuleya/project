@@ -6,7 +6,7 @@
     "guests": 1,
     "price": 145,
     "count": 2,
-    "image": "/rooms/room1.jpg"
+    "image": "/rooms/room1.webp"
   },
   {
     "id": "2",
@@ -15,7 +15,7 @@
     "guests": 2,
     "price": 795,
     "count": 3,
-    "image": "/rooms/room1.jpg"
+    "image": "/rooms/room4.webp"
   },
   {
     "id": "3",
@@ -24,7 +24,7 @@
     "guests": 3,
     "price": 260,
     "count": 1,
-    "image": "/rooms/room1.jpg"
+    "image": "/rooms/room3.webp"
   },
   {
     "id": "4",
@@ -33,7 +33,7 @@
     "guests": 3,
     "price": 595,
     "count": 2,
-    "image": "/rooms/room1.jpg"
+    "image": "/rooms/room2.webp"
   },
   {
     "id": "5",
@@ -42,7 +42,7 @@
     "guests": 2,
     "price": 395,
     "count": 3,
-    "image": "/rooms/room1.jpg"
+    "image": "/rooms/room5.webp"
   },
   {
     "id": "6",
@@ -51,6 +51,6 @@
     "guests": 1,
     "price": 195,
     "count": 1,
-    "image": "/rooms/room1.jpg"
+    "image": "/rooms/room6.webp"
   }
 ]

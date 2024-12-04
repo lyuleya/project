@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Logo = () => (
-  <Link to="/" className="header-logo">
+const Logo = ({ onLogoClick }) => (
+  <Link to="/" className="header-logo" onClick={onLogoClick}>
     Hotel Logo
   </Link>
 );
