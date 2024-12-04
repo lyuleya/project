@@ -1,0 +1,12 @@
+.bookings-title {
+  font-size: 2rem;
+  color: var(--color-blue-300);
+}
+
+.bookings-price {
+  color: var(--color-blue-300);
+}
+
+.bookings-button {
+  padding: 10px 30px;
+}
