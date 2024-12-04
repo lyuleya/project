@@ -1,17 +1,16 @@
 import React from "react";
+import { FILTER_FIELDS } from "./constants";
+import "./style.css";
 
-const Filter = ({ filters, setFilters, errors, setErrors, onApply }) => {
+const Filter = ({ role, filters, setFilters, errors, setErrors, onApply }) => {
+  const fields = FILTER_FIELDS[role];
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
     setFilters((prevFilters) => ({
       ...prevFilters,
-      [name]:
-        name === "guests" && value !== ""
-          ? Math.max(1, parseInt(value, 10))
-          : value === ""
-          ? ""
-          : value,
+      [name]: value === "" ? "" : value,
     }));
 
     if (errors[name]) {
@@ -22,54 +21,64 @@ const Filter = ({ filters, setFilters, errors, setErrors, onApply }) => {
     }
   };
 
+  const handleClearFilters = () => {
+    const clearedFilters = {};
+    fields.forEach((field) => {
+      clearedFilters[field.name] = field.defaultValue || "";
+    });
+    setFilters(clearedFilters);
+    setErrors({});
+  };
+
   return (
-    <div className="mb-4 p-3 border rounded">
-      <div className="d-flex gap-3 align-items-center">
-        <div className="col-md-4">
-          <label htmlFor="startDate" className="form-label">
-            Start Date
-          </label>
-          <input
-            type="date"
-            id="startDate"
-            name="startDate"
-            className={`form-control ${errors.startDate ? "is-invalid" : ""}`}
-            value={filters.startDate}
-            min={new Date().toISOString().split("T")[0]}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="col-md-4">
-          <label htmlFor="endDate" className="form-label">
-            End Date
-          </label>
-          <input
-            type="date"
-            id="endDate"
-            name="endDate"
-            className={`form-control ${errors.endDate ? "is-invalid" : ""}`}
-            value={filters.endDate}
-            min={filters.startDate || new Date().toISOString().split("T")[0]}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="col-md-2">
-          <label htmlFor="guests" className="form-label">
-            Guests
-          </label>
-          <input
-            type="number"
-            id="guests"
-            name="guests"
-            className="form-control"
-            min={1}
-            max={5}
-            value={filters.guests}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="col-md-2 flex-fill align-self-stretch">
-          <button className="btn custom-button h-100 w-100" onClick={onApply}>
+    <div className="mb-4 p-3 border rounded position-relative">
+      <button
+        type="button"
+        className="btn-close position-absolute top-0 end-0 m-2"
+        aria-label="Clear filters"
+        onClick={handleClearFilters}
+        title="Clear filters"
+      ></button>
+      <div className="row g-3">
+        {fields.map((field) => (
+          <div key={field.name} className={`col-md-${field.size}`}>
+            <label htmlFor={field.name} className="form-label">
+              {field.label}
+            </label>
+            {field.type === "select" ? (
+              <select
+                id={field.name}
+                name={field.name}
+                className={`form-control ${
+                  errors[field.name] ? "is-invalid" : ""
+                }`}
+                value={filters[field.name]}
+                onChange={handleInputChange}
+              >
+                {field.options.map((option) => (
+                  <option key={option} value={option}>
+                    {option.charAt(0).toUpperCase() + option.slice(1)}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <input
+                type={field.type}
+                id={field.name}
+                name={field.name}
+                className={`form-control ${
+                  errors[field.name] ? "is-invalid" : ""
+                }`}
+                value={filters[field.name]}
+                min={field.min}
+                max={field.max}
+                onChange={handleInputChange}
+              />
+            )}
+          </div>
+        ))}
+        <div className="col-md-2 align-self-end">
+          <button className="btn filter-button w-100" onClick={onApply}>
             Search
           </button>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from "react";
+import { getToday } from "../../utils";
 
 const BookingForm = ({ room, onAddBooking, onClose }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
 
   const { date, nights } = formData;
 
+  const today = getToday();
   const totalPrice = useMemo(() => room.price * nights, [room.price, nights]);
 
   const handleChange = (e) => {
@@ -40,8 +42,6 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
     }
   };
 
-  const todayDate = new Date().toISOString().split("T")[0];
-
   return (
     <form className="booking-form" onSubmit={handleSubmit}>
       <h3 className="fw-bold room-details-title">{room.title}</h3>
@@ -55,7 +55,7 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
           name="date"
           className="form-control"
           value={date}
-          min={todayDate}
+          min={today}
           onChange={handleChange}
           required
         />

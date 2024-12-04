@@ -1,9 +1,10 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import userProfile from "../../assets/icons/user.svg";
+import { useNavigate } from "react-router-dom";
 
 const Profile = ({ user, onLogout }) => {
   const navigate = useNavigate();
+  const isAdmin = user.role === "admin";
 
   const handleSignOut = () => {
     onLogout();
@@ -27,17 +28,21 @@ const Profile = ({ user, onLogout }) => {
         className="dropdown-menu header-dropdown-menu shadow"
         aria-labelledby="profileDropdown"
       >
-        <li>
-          <button
-            className="dropdown-item header-dropdown-item"
-            onClick={handleNavigateToBookings}
-          >
-            {user?.name || "Unknown User"}
-          </button>
-        </li>
-        <li>
-          <hr className="dropdown-divider" />
-        </li>
+        {!isAdmin && (
+          <>
+            <li>
+              <button
+                className="dropdown-item header-dropdown-item"
+                onClick={handleNavigateToBookings}
+              >
+                {user?.name || "Unknown User"}
+              </button>
+            </li>
+            <li>
+              <hr className="dropdown-divider" />
+            </li>
+          </>
+        )}
         <li>
           <button
             className="dropdown-item header-dropdown-item text-danger"
