@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Navigate } from "react-router-dom";
 import BookingModal from "../../components/booking-modal";
-import "./style.css";
+import Loader from "../../components/loader";
 import { createBooking, fetchRoomDetails } from "../../modules/api";
+import "./style.css";
 
 const RoomDetails = ({ user }) => {
   const { roomId } = useParams();
@@ -48,7 +49,7 @@ const RoomDetails = ({ user }) => {
   };
 
   if (isLoading) {
-    return <main></main>;
+    return <Loader />;
   }
 
   if (!room) {
@@ -87,11 +88,14 @@ const RoomDetails = ({ user }) => {
       </div>
 
       {isModalOpen && (
-        <BookingModal
-          room={room}
-          onAddBooking={handleAddBooking}
-          onClose={toggleModal}
-        />
+        <>
+          <div className="modal-backdrop show"></div>
+          <BookingModal
+            room={room}
+            onAddBooking={handleAddBooking}
+            onClose={toggleModal}
+          />
+        </>
       )}
     </main>
   );

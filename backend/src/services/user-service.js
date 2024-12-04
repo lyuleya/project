@@ -13,6 +13,11 @@ const saveUsers = (users) => {
 
 const getAllUsers = () => loadUsers();
 
+const getUserById = (userId) => {
+  const users = loadUsers();
+  return users.find((user) => user.id === userId);
+};
+
 const authenticateUser = (email, password) => {
   const users = loadUsers();
   return users.find(
@@ -42,6 +47,7 @@ const registerUser = ({ name, email, password, role = "user" }) => {
 };
 
 export default {
+  getUserById,
   getAllUsers,
   authenticateUser,
   registerUser,

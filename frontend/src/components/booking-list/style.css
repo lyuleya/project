@@ -1,0 +1,16 @@
+.booking-list-card {
+    background-color: var(--color-blue-100);
+  }
+  
+  .booking-list-title {
+    font-size: 2rem;
+    color: var(--color-blue-300);
+  }
+  
+  .booking-list-paid-status {
+    color: var(--color-green);
+  }
+  
+  .booking-list-pending-status {
+    color: var(--color-red);
+  }

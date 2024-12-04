@@ -6,20 +6,22 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Bookings from "../../pages/bookings";
 import Header from "../../pages/header";
 import Footer from "../../pages/footer";
 import Main from "../../pages/main";
+import UserBookings from "../../pages/user-bookings";
 import RoomDetails from "../../pages/room-details";
 import SignIn from "../../pages/sign-in";
 import SignUp from "../../pages/sign-up";
+import Loader from "../../components/loader";
 import { getUserFromLocalStorage, saveUserToLocalStorage } from "../../utils";
-import { fetchRooms } from "../api";
+import { fetchAllBookings, fetchRooms } from "../api";
 
 const App = () => {
   const [user, setUser] = useState(getUserFromLocalStorage());
-  const [rooms, setRooms] = useState([]);
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const isAdmin = user && user.role === "admin";
 
   const handleLogin = (userData) => {
     setUser(userData);
@@ -32,10 +34,13 @@ const App = () => {
   };
 
   useEffect(() => {
-    const loadRooms = async () => {
+    const loadData = async () => {
+      setLoading(true);
       try {
-        const data = await fetchRooms();
-        setRooms(data);
+        const fetchingData = isAdmin
+          ? await fetchAllBookings()
+          : await fetchRooms();
+        setData(fetchingData);
       } catch (error) {
         console.debug("Error fetching rooms:", error);
       } finally {
@@ -43,11 +48,11 @@ const App = () => {
       }
     };
 
-    loadRooms();
-  }, []);
+    loadData();
+  }, [user]);
 
   if (loading) {
-    return <main></main>;
+    return <Loader />;
   }
 
   return (
@@ -56,7 +61,13 @@ const App = () => {
       <Routes>
         <Route
           path="/"
-          element={user ? <Main rooms={rooms} /> : <Navigate to="/sign-in" />}
+          element={
+            user ? (
+              <Main role={user.role} initialData={data} />
+            ) : (
+              <Navigate to="/sign-in" />
+            )
+          }
         />
         <Route
           path="/sign-in"
@@ -76,7 +87,9 @@ const App = () => {
         />
         <Route
           path="/bookings"
-          element={user ? <Bookings user={user} /> : <Navigate to="/sign-in" />}
+          element={
+            user ? <UserBookings user={user} /> : <Navigate to="/sign-in" />
+          }
         />
         <Route path="*" element={<Navigate to={user ? "/" : "/sign-in"} />} />
       </Routes>

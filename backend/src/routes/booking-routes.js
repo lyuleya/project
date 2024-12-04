@@ -32,6 +32,17 @@ router.get("/", (req, res) => {
   }
 });
 
+router.post("/filter", (req, res) => {
+  const filters = req.body;
+  try {
+    const filteredBookings = bookingService.getFilteredBookings(filters);
+    res.status(200).json(filteredBookings);
+  } catch (error) {
+    console.error("Error filtering bookings:", error);
+    res.status(500).json({ message: "Error filtering bookings" });
+  }
+});
+
 router.get("/user/:userId", (req, res) => {
   const { userId } = req.params;
 
