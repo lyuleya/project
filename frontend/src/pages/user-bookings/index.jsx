@@ -1,12 +1,23 @@
-import React, { useEffect, useState } from "react";
-import UserBookingItem from "./item";
+import React, { useCallback, useEffect, useState } from "react";
+
+import UserBookingItem from "./user-bookings-item";
 import Loader from "../../components/loader";
-import { fetchUserBookings, deleteBooking } from "../../modules/api";
+import { deleteBooking, fetchUserBookings } from "../../modules/api";
+
 import "./style.css";
 
 const UserBookings = ({ user }) => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const handleDelete = useCallback(async (bookingId) => {
+    try {
+      await deleteBooking(bookingId);
+      setBookings((prev) => prev.filter((booking) => booking.id !== bookingId));
+    } catch (error) {
+      console.debug("Error deleting booking:", error);
+    }
+  }, []);
 
   useEffect(() => {
     const loadUserBookings = async () => {
@@ -22,15 +33,6 @@ const UserBookings = ({ user }) => {
 
     loadUserBookings();
   }, [user.id]);
-
-  const handleDelete = async (bookingId) => {
-    try {
-      await deleteBooking(bookingId);
-      setBookings((prev) => prev.filter((booking) => booking.id !== bookingId));
-    } catch (error) {
-      console.debug("Error deleting booking:", error);
-    }
-  };
 
   if (loading) {
     return <Loader />;

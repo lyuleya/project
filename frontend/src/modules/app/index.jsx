@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
-  Routes,
-  Route,
   Navigate,
+  Route,
+  Routes,
 } from "react-router-dom";
 
-import Header from "../../pages/header";
+import Loader from "../../components/loader";
 import Footer from "../../pages/footer";
+import Header from "../../pages/header";
 import Main from "../../pages/main";
-import UserBookings from "../../pages/user-bookings";
 import RoomDetails from "../../pages/room-details";
 import SignIn from "../../pages/sign-in";
 import SignUp from "../../pages/sign-up";
-import Loader from "../../components/loader";
+import UserBookings from "../../pages/user-bookings";
 import { getUserFromLocalStorage, saveUserToLocalStorage } from "../../utils";
 import { fetchAllBookings, fetchRooms } from "../api";
 
@@ -24,19 +24,19 @@ const App = () => {
   const [filterResetTrigger, setFilterResetTrigger] = useState(false);
   const isAdmin = user && user.role === "admin";
 
-  const handleLogin = (userData) => {
+  const handleLogin = useCallback((userData) => {
     setUser(userData);
     saveUserToLocalStorage(userData);
-  };
+  }, []);
 
-  const handleLogout = () => {
+  const handleLogout = useCallback(() => {
     setUser(null);
     localStorage.removeItem("user");
-  };
+  }, []);
 
-  const handleLogoClick = () => {
+  const handleLogoClick = useCallback(() => {
     setFilterResetTrigger((prev) => !prev);
-  };
+  }, []);
 
   useEffect(() => {
     const loadData = async () => {
@@ -54,7 +54,7 @@ const App = () => {
     };
 
     loadData();
-  }, [user]);
+  }, [user, isAdmin]);
 
   if (loading) {
     return <Loader />;

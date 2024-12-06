@@ -54,14 +54,14 @@ const deleteBooking = async (bookingId) => {
 };
 
 export {
-  loginUser,
-  registerUser,
-  fetchRooms,
-  fetchFilteredRooms,
-  fetchRoomDetails,
-  fetchAllBookings,
-  fetchFilteredBookings,
-  fetchUserBookings,
   createBooking,
   deleteBooking,
+  fetchAllBookings,
+  fetchFilteredBookings,
+  fetchFilteredRooms,
+  fetchRoomDetails,
+  fetchRooms,
+  fetchUserBookings,
+  loginUser,
+  registerUser,
 };
