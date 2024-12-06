@@ -9,14 +9,14 @@ const getUserFromLocalStorage = () => {
   return user ? JSON.parse(user) : null;
 };
 
-const validateFilters = ({ startDate, endDate }) => {
+const validateFilters = ({ startDate, endDate }, isAdmin = false) => {
   const today = new Date().toISOString().split("T")[0];
   const errors = {};
 
-  if (!startDate || startDate < today) {
+  if (!startDate || (!isAdmin && startDate < today)) {
     errors.startDate = true;
   }
-  if (!endDate || endDate < today || endDate < startDate) {
+  if (!endDate || (!isAdmin && endDate < today) || endDate <= startDate) {
     errors.endDate = true;
   }
 
@@ -39,9 +39,9 @@ const getToday = () => {
 };
 
 export {
+  formatDateRange,
   getToday,
   getUserFromLocalStorage,
   saveUserToLocalStorage,
-  formatDateRange,
   validateFilters,
 };

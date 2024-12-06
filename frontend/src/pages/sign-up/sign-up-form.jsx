@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+
 import { registerUser } from "../../modules/api";
 
 const SignUpForm = () => {
@@ -29,7 +30,7 @@ const SignUpForm = () => {
     }
 
     try {
-      await registerUser(formData.name, formData.email, formData.password, formData.role);
+      await registerUser(formData.name, formData.email, formData.password);
       navigate("/sign-in");
     } catch (error) {
       setErrorMessage("User already exists or registration failed.");

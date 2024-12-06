@@ -1,6 +1,8 @@
 import React from "react";
+
 import Logo from "./logo";
 import Profile from "./profile";
+
 import "./style.css";
 
 const Header = ({ user, onLogout, onLogoClick }) => (

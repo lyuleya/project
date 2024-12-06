@@ -1,3 +1,5 @@
+import React from "react";
+
 import { formatDateRange } from "../../utils";
 
 const UserBookingItem = ({ booking, onDelete }) => {

@@ -1,6 +1,7 @@
 import React from "react";
-import userProfile from "../../assets/icons/user.svg";
 import { useNavigate } from "react-router-dom";
+
+import userProfile from "../../assets/icons/user.svg";
 
 const Profile = ({ user, onLogout }) => {
   const navigate = useNavigate();

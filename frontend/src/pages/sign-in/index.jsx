@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SignInForm from "./form";
+
+import SignInForm from "./sign-in-form";
 
 const SignIn = ({ onLogin }) => (
   <main className="container my-5 auth-page">

@@ -1,5 +1,7 @@
 import React from "react";
+
 import { FILTER_FIELDS } from "./constants";
+
 import "./style.css";
 
 const Filter = ({

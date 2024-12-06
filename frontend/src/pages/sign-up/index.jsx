@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SignUpForm from "./form";
+
+import SignUpForm from "./sign-up-form";
 
 const SignUp = () => (
   <main className="container my-5 auth-page">

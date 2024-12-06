@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import RoomList from "../../components/room-list";
+import React, { useCallback, useEffect, useState } from "react";
+
 import BookingList from "../../components/booking-list";
 import Filter from "../../components/filter";
-import { fetchFilteredRooms, fetchFilteredBookings } from "../../modules/api";
+import RoomList from "../../components/room-list";
+import { fetchFilteredBookings, fetchFilteredRooms } from "../../modules/api";
 import { validateFilters } from "../../utils";
 
 const Main = ({ role, initialData, filterResetTrigger }) => {
@@ -16,8 +17,8 @@ const Main = ({ role, initialData, filterResetTrigger }) => {
   const [filteredData, setFilteredData] = useState(initialData);
   const [errors, setErrors] = useState({});
 
-  const handleFilter = async () => {
-    const errors = validateFilters(filters);
+  const handleFilter = useCallback(async () => {
+    const errors = validateFilters(filters, isAdmin);
     if (Object.keys(errors).length > 0) {
       setErrors(errors);
       return;
@@ -34,9 +35,9 @@ const Main = ({ role, initialData, filterResetTrigger }) => {
       );
       setFilteredData([]);
     }
-  };
+  }, [filters, isAdmin]);
 
-  const handleClearFilters = () => {
+  const handleClearFilters = useCallback(() => {
     setFilters(
       isAdmin
         ? { startDate: "", endDate: "", status: "all" }
@@ -44,11 +45,11 @@ const Main = ({ role, initialData, filterResetTrigger }) => {
     );
     setFilteredData(initialData);
     setErrors({});
-  };
+  }, [isAdmin, initialData]);
 
   useEffect(() => {
     handleClearFilters();
-  }, [filterResetTrigger]);
+  }, [filterResetTrigger, handleClearFilters]);
 
   return (
     <main className="container my-5">

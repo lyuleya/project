@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import React, { useCallback, useEffect, useState } from "react";
+import { Navigate, useParams } from "react-router-dom";
+
 import BookingModal from "../../components/booking-modal";
 import Loader from "../../components/loader";
 import { createBooking, fetchRoomDetails } from "../../modules/api";
+
 import "./style.css";
 
 const RoomDetails = ({ user }) => {
@@ -10,6 +12,31 @@ const RoomDetails = ({ user }) => {
   const [room, setRoom] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = useCallback(() => {
+    setIsModalOpen((prev) => !prev);
+  }, []);
+
+  const handleAddBooking = useCallback(
+    async (newBooking) => {
+      try {
+        const bookingData = {
+          userId: user.id,
+          roomId: room.id,
+          date: newBooking.date,
+          nights: newBooking.nights,
+          totalPrice: newBooking.totalPrice,
+          status: newBooking.status,
+        };
+
+        await createBooking(bookingData);
+        alert("Booking saved successfully!");
+      } catch (error) {
+        alert(error.response?.data?.message || "Failed to save booking.");
+      }
+    },
+    [user, room]
+  );
 
   useEffect(() => {
     const loadRoom = async () => {
@@ -25,28 +52,6 @@ const RoomDetails = ({ user }) => {
 
     loadRoom();
   }, [roomId]);
-
-  const toggleModal = () => {
-    setIsModalOpen((prev) => !prev);
-  };
-
-  const handleAddBooking = async (newBooking) => {
-    try {
-      const bookingData = {
-        userId: user.id,
-        roomId: room.id,
-        date: newBooking.date,
-        nights: newBooking.nights,
-        totalPrice: newBooking.totalPrice,
-        status: newBooking.status,
-      };
-
-      await createBooking(bookingData);
-      alert("Booking saved successfully!");
-    } catch (error) {
-      alert(error.response?.data?.message || "Failed to save booking.");
-    }
-  };
 
   if (isLoading) {
     return <Loader />;
