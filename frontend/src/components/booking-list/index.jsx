@@ -1,5 +1,6 @@
 import React from "react";
-import BookingItem from "./item";
+
+import BookingItem from "./booking-item";
 
 const BookingList = ({ bookings }) => {
   const groupedBookings = {};

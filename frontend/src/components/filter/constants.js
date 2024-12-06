@@ -36,7 +36,6 @@ export const FILTER_FIELDS = {
       type: "date",
       size: 4,
       label: "Start Date",
-      min: today,
       defaultValue: "",
     },
     {
@@ -44,7 +43,6 @@ export const FILTER_FIELDS = {
       type: "date",
       size: 4,
       label: "End Date",
-      min: today,
       defaultValue: "",
     },
     {

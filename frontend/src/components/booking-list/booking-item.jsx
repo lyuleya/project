@@ -1,5 +1,7 @@
 import React from "react";
-import BookingItemRow from "./row";
+
+import BookingItemRow from "./booking-item-row";
+
 import "./style.css";
 
 const BookingItem = ({ group }) => {

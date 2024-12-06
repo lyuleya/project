@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from "react";
+import React, { useMemo, useState } from "react";
+
 import { getToday } from "../../utils";
 
 const BookingForm = ({ room, onAddBooking, onClose }) => {
@@ -43,7 +44,7 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
   };
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit}>
+    <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
       <h3 className="fw-bold room-details-title">{room.title}</h3>
       <div className="mb-3">
         <label htmlFor="date" className="form-label">
