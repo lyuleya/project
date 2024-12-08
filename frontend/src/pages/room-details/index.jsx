@@ -1,7 +1,9 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import BookingModal from "../../components/booking-modal";
+import Button from "../../components/common/button";
 import Loader from "../../components/loader";
 import { createBooking, fetchRoomDetails } from "../../modules/api";
 
@@ -30,9 +32,9 @@ const RoomDetails = ({ user }) => {
         };
 
         await createBooking(bookingData);
-        alert("Booking saved successfully!");
+        toast.success("Booking saved successfully!");
       } catch (error) {
-        alert(error.response?.data?.message || "Failed to save booking.");
+        toast.error(error.response?.data?.message || "Failed to save booking.");
       }
     },
     [user, room]
@@ -92,9 +94,9 @@ const RoomDetails = ({ user }) => {
                   ${price} per night
                 </strong>
               </div>
-              <button className="btn w-100 custom-button" onClick={toggleModal}>
+              <Button className="btn w-100 custom-button" onClick={toggleModal}>
                 Book this Room
-              </button>
+              </Button>
             </div>
           </div>
         </div>

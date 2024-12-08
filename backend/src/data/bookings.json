@@ -79,5 +79,14 @@
     "nights": 3,
     "totalPrice": 780,
     "status": "paid"
+  },
+  {
+    "id": "1733681911716",
+    "userId": "2",
+    "roomId": "3",
+    "date": "2024-12-28T00:00:00.000Z",
+    "nights": 1,
+    "totalPrice": 260,
+    "status": "pending"
   }
 ]
