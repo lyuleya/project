@@ -5,6 +5,7 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import Loader from "../../components/loader";
 import Footer from "../../pages/footer";
@@ -16,6 +17,8 @@ import SignUp from "../../pages/sign-up";
 import UserBookings from "../../pages/user-bookings";
 import { getUserFromLocalStorage, saveUserToLocalStorage } from "../../utils";
 import { fetchAllBookings, fetchRooms } from "../api";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [user, setUser] = useState(getUserFromLocalStorage());
@@ -61,53 +64,56 @@ const App = () => {
   }
 
   return (
-    <Router>
-      <Header
-        user={user}
-        onLogout={handleLogout}
-        onLogoClick={handleLogoClick}
-      />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            user ? (
-              <Main
-                role={user.role}
-                initialData={data}
-                filterResetTrigger={filterResetTrigger}
-              />
-            ) : (
-              <Navigate to="/sign-in" />
-            )
-          }
+    <>
+      <Router>
+        <Header
+          user={user}
+          onLogout={handleLogout}
+          onLogoClick={handleLogoClick}
         />
-        <Route
-          path="/sign-in"
-          element={
-            !user ? <SignIn onLogin={handleLogin} /> : <Navigate to="/" />
-          }
-        />
-        <Route
-          path="/sign-up"
-          element={!user ? <SignUp /> : <Navigate to="/" />}
-        />
-        <Route
-          path="/rooms/:roomId"
-          element={
-            user ? <RoomDetails user={user} /> : <Navigate to="/sign-in" />
-          }
-        />
-        <Route
-          path="/bookings"
-          element={
-            user ? <UserBookings user={user} /> : <Navigate to="/sign-in" />
-          }
-        />
-        <Route path="*" element={<Navigate to={user ? "/" : "/sign-in"} />} />
-      </Routes>
-      <Footer />
-    </Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              user ? (
+                <Main
+                  role={user.role}
+                  initialData={data}
+                  filterResetTrigger={filterResetTrigger}
+                />
+              ) : (
+                <Navigate to="/sign-in" />
+              )
+            }
+          />
+          <Route
+            path="/sign-in"
+            element={
+              !user ? <SignIn onLogin={handleLogin} /> : <Navigate to="/" />
+            }
+          />
+          <Route
+            path="/sign-up"
+            element={!user ? <SignUp /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/rooms/:roomId"
+            element={
+              user ? <RoomDetails user={user} /> : <Navigate to="/sign-in" />
+            }
+          />
+          <Route
+            path="/bookings"
+            element={
+              user ? <UserBookings user={user} /> : <Navigate to="/sign-in" />
+            }
+          />
+          <Route path="*" element={<Navigate to={user ? "/" : "/sign-in"} />} />
+        </Routes>
+        <Footer />
+      </Router>
+      <ToastContainer position="top-right" autoClose={3000} />
+    </>
   );
 };
 
