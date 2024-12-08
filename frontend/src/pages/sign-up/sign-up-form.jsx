@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
+import Button from "../../components/common/button";
+import Input from "../../components/common/input";
+import RadioButton from "../../components/common/radio-button";
 import { registerUser } from "../../modules/api";
 
 const SignUpForm = () => {
@@ -11,7 +15,6 @@ const SignUpForm = () => {
     password: "",
     role: "user",
   });
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +28,6 @@ const SignUpForm = () => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.password) {
-      setErrorMessage("Please fill out all fields.");
       return;
     }
 
@@ -33,7 +35,8 @@ const SignUpForm = () => {
       await registerUser(formData.name, formData.email, formData.password);
       navigate("/sign-in");
     } catch (error) {
-      setErrorMessage("User already exists or registration failed.");
+      const message = "User already exists or registration failed.";
+      toast.error(message);
       console.debug("Registration error:", error);
     }
   };
@@ -45,11 +48,8 @@ const SignUpForm = () => {
         <label htmlFor="name" className="form-label">
           Full Name
         </label>
-        <input
-          type="text"
+        <Input
           name="name"
-          id="name"
-          className="form-control"
           value={formData.name}
           onChange={handleChange}
           required
@@ -59,11 +59,9 @@ const SignUpForm = () => {
         <label htmlFor="email" className="form-label">
           Email
         </label>
-        <input
+        <Input
           type="email"
           name="email"
-          id="email"
-          className="form-control"
           value={formData.email}
           onChange={handleChange}
           required
@@ -73,11 +71,9 @@ const SignUpForm = () => {
         <label htmlFor="password" className="form-label">
           Password
         </label>
-        <input
+        <Input
           type="password"
           name="password"
-          id="password"
-          className="form-control"
           value={formData.password}
           onChange={handleChange}
           required
@@ -87,10 +83,7 @@ const SignUpForm = () => {
         <label className="form-label">Role</label>
         <div className="d-flex justify-content-evenly">
           <div className="form-check">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="role"
+            <RadioButton
               id="roleUser"
               value="user"
               checked={formData.role === "user"}
@@ -101,10 +94,7 @@ const SignUpForm = () => {
             </label>
           </div>
           <div className="form-check">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="role"
+            <RadioButton
               id="roleAdmin"
               value="admin"
               checked={formData.role === "admin"}
@@ -116,14 +106,9 @@ const SignUpForm = () => {
           </div>
         </div>
       </div>
-      {errorMessage && (
-        <div className="alert alert-danger" role="alert">
-          {errorMessage}
-        </div>
-      )}
-      <button type="submit" className="btn w-100 custom-button">
+      <Button type="submit" className="w-100 custom-button">
         Sign Up
-      </button>
+      </Button>
     </form>
   );
 };

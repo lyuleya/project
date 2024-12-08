@@ -1,6 +1,9 @@
 import React, { useMemo, useState } from "react";
+import { toast } from "react-toastify";
 
 import { getToday } from "../../utils";
+import Button from "../common/button";
+import Input from "../common/input";
 
 const BookingForm = ({ room, onAddBooking, onClose }) => {
   const [formData, setFormData] = useState({
@@ -39,7 +42,7 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
       await onAddBooking(newBooking);
       onClose();
     } catch (error) {
-      alert(error.response?.data?.message || "Failed to book the room.");
+      toast.error(error.response?.data?.message || "Failed to book the room.");
     }
   };
 
@@ -50,11 +53,9 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
         <label htmlFor="date" className="form-label">
           Date
         </label>
-        <input
+        <Input
           type="date"
-          id="date"
           name="date"
-          className="form-control"
           value={date}
           min={today}
           onChange={handleChange}
@@ -66,11 +67,9 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
         <label htmlFor="nights" className="form-label">
           Number of nights
         </label>
-        <input
+        <Input
           type="number"
-          id="nights"
           name="nights"
-          className="form-control"
           value={nights}
           min={1}
           max={30}
@@ -78,15 +77,13 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
           required
         />
       </div>
-
       <div className="d-flex justify-content-between align-items-center mb-3">
         <span className="fw-bold">Total:</span>
         <span className="h4 room-details-price">${totalPrice}</span>
       </div>
-
-      <button type="submit" className="btn w-100 custom-button">
+      <Button type="submit" className="w-100 custom-button">
         Book a room
-      </button>
+      </Button>
     </form>
   );
 };

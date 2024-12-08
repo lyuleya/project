@@ -1,6 +1,8 @@
 import React from "react";
 
 import { FILTER_FIELDS } from "./constants";
+import Button from "../common/button";
+import Input from "../common/input";
 
 import "./style.css";
 
@@ -33,13 +35,12 @@ const Filter = ({
 
   return (
     <div className="mb-4 p-3 border rounded position-relative">
-      <button
-        type="button"
+      <Button
         className="btn-close position-absolute top-0 end-0 m-2"
-        aria-label="Clear filters"
+        ariaLabel="Clear filters"
         onClick={onClear}
         title="Clear filters"
-      ></button>
+      />
       <div className="row g-3">
         {fields.map((field) => (
           <div key={field.name} className={`col-md-${field.size}`}>
@@ -63,13 +64,10 @@ const Filter = ({
                 ))}
               </select>
             ) : (
-              <input
+              <Input
                 type={field.type}
-                id={field.name}
                 name={field.name}
-                className={`form-control ${
-                  errors[field.name] ? "is-invalid" : ""
-                }`}
+                className={errors[field.name] ? "is-invalid" : ""}
                 value={filters[field.name]}
                 min={field.min}
                 max={field.max}
@@ -79,9 +77,9 @@ const Filter = ({
           </div>
         ))}
         <div className="col-md-2 align-self-end">
-          <button className="btn filter-button w-100" onClick={onApply}>
+          <Button className="btn filter-button w-100" onClick={onApply}>
             Search
-          </button>
+          </Button>
         </div>
       </div>
     </div>

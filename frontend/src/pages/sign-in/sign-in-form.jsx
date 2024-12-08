@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
+import Button from "../../components/common/button";
+import Input from "../../components/common/input";
 import { loginUser } from "../../modules/api";
 
 const SignInForm = ({ onLogin }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +22,6 @@ const SignInForm = ({ onLogin }) => {
     e.preventDefault();
 
     if (!formData.email || !formData.password) {
-      setErrorMessage("Please fill out all fields.");
       return;
     }
 
@@ -29,7 +30,8 @@ const SignInForm = ({ onLogin }) => {
       onLogin(user);
       navigate("/");
     } catch (error) {
-      setErrorMessage("Invalid email or password.");
+      const message = "Invalid email or password.";
+      toast.error(message);
       console.debug("Login error:", error);
     }
   };
@@ -41,11 +43,9 @@ const SignInForm = ({ onLogin }) => {
         <label htmlFor="email" className="form-label">
           Email
         </label>
-        <input
+        <Input
           type="email"
           name="email"
-          id="email"
-          className="form-control"
           value={formData.email}
           onChange={handleChange}
           required
@@ -55,24 +55,17 @@ const SignInForm = ({ onLogin }) => {
         <label htmlFor="password" className="form-label">
           Password
         </label>
-        <input
+        <Input
           type="password"
           name="password"
-          id="password"
-          className="form-control"
           value={formData.password}
           onChange={handleChange}
           required
         />
       </div>
-      {errorMessage && (
-        <div className="alert alert-danger" role="alert">
-          {errorMessage}
-        </div>
-      )}
-      <button type="submit" className="btn w-100 custom-button">
+      <Button type="submit" className="w-100 custom-button">
         Sign In
-      </button>
+      </Button>
     </form>
   );
 };

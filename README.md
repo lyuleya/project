@@ -86,7 +86,7 @@ Ensure the following are installed:
    npm install
    ```
 
-   - Create a `.env` file. Add the content from `.env.example`. Example:
+   - Create a `.env` file. Add the content from `.env.example`. Make sure the port matches the one specified in the backend's `.env` file. Example:
 
    ```bash
    VITE_API_BASE_URL=http://localhost:5001/api

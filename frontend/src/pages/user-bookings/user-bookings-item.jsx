@@ -1,5 +1,6 @@
 import React from "react";
 
+import Button from "../../components/common/button";
 import { formatDateRange } from "../../utils";
 
 const UserBookingItem = ({ booking, onDelete }) => {
@@ -23,12 +24,12 @@ const UserBookingItem = ({ booking, onDelete }) => {
           <p className="card-text bookings-price">
             <strong>Total Price: ${booking.totalPrice}</strong>
           </p>
-          <button
+          <Button
             className="btn btn-danger w-100 bookings-button"
             onClick={handleDelete}
           >
             Cancel Booking
-          </button>
+          </Button>
         </div>
       </div>
     </div>

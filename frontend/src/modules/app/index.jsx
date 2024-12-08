@@ -7,9 +7,9 @@ import {
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
+import Footer from "../../components/footer";
+import Header from "../../components/header";
 import Loader from "../../components/loader";
-import Footer from "../../pages/footer";
-import Header from "../../pages/header";
 import Main from "../../pages/main";
 import RoomDetails from "../../pages/room-details";
 import SignIn from "../../pages/sign-in";

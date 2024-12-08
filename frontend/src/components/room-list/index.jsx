@@ -1,6 +1,6 @@
 import React from "react";
 
-import RoomCard from "../room-card";
+import RoomCard from "./room-card";
 
 const RoomList = ({ rooms }) => {
   return (

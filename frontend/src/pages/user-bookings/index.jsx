@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 import UserBookingItem from "./user-bookings-item";
 import Loader from "../../components/loader";
@@ -15,7 +16,9 @@ const UserBookings = ({ user }) => {
       await deleteBooking(bookingId);
       setBookings((prev) => prev.filter((booking) => booking.id !== bookingId));
     } catch (error) {
-      console.debug("Error deleting booking:", error);
+      const message = "Error deleting booking.";
+      toast.error(message);
+      console.debug(message, error);
     }
   }, []);
 
