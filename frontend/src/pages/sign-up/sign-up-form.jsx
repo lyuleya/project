@@ -46,7 +46,7 @@ const SignUpForm = () => {
       <h2 className="mb-4 text-center">Sign Up</h2>
       <div className="mb-2">
         <label htmlFor="name" className="form-label">
-          Full Name
+          Full name
         </label>
         <Input
           name="name"

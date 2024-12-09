@@ -43,7 +43,7 @@ const UserBookings = ({ user }) => {
 
   return (
     <main className="container my-5">
-      <h1 className="text-center mb-5">My Bookings</h1>
+      <h1 className="text-center mb-5 page-title">My bookings</h1>
       {bookings.length === 0 ? (
         <p className="text-center">No bookings yet.</p>
       ) : (

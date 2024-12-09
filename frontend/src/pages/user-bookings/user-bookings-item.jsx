@@ -22,7 +22,7 @@ const UserBookingItem = ({ booking, onDelete }) => {
             <strong>Dates:</strong> {dateRange}
           </p>
           <p className="card-text bookings-price">
-            <strong>Total Price: ${booking.totalPrice}</strong>
+            <strong>Total price: ${booking.totalPrice}</strong>
           </p>
           <Button
             className="btn btn-danger w-100 bookings-button"

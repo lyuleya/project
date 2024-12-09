@@ -48,7 +48,7 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
 
   return (
     <form className="d-flex flex-column gap-3" onSubmit={handleSubmit}>
-      <h3 className="fw-bold room-details-title">{room.title}</h3>
+      <h3 className="booking-form-title">{room.title}</h3>
       <div className="mb-3">
         <label htmlFor="date" className="form-label">
           Date
@@ -78,8 +78,8 @@ const BookingForm = ({ room, onAddBooking, onClose }) => {
         />
       </div>
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <span className="fw-bold">Total:</span>
-        <span className="h4 room-details-price">${totalPrice}</span>
+        <span className="booking_form_price_title">Total price:</span>
+        <span className="h4 booking-form-price_value">${totalPrice}</span>
       </div>
       <Button type="submit" className="w-100 custom-button">
         Book a room
