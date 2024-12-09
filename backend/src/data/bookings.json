@@ -36,42 +36,6 @@
     "status": "pending"
   },
   {
-    "id": "1733332166664",
-    "userId": "2",
-    "roomId": "1",
-    "date": "2024-12-20T00:00:00.000Z",
-    "nights": 2,
-    "totalPrice": 290,
-    "status": "pending"
-  },
-  {
-    "id": "1733332315454",
-    "userId": "2",
-    "roomId": "6",
-    "date": "2024-12-17T00:00:00.000Z",
-    "nights": 1,
-    "totalPrice": 195,
-    "status": "paid"
-  },
-  {
-    "id": "1733332328666",
-    "userId": "2",
-    "roomId": "4",
-    "date": "2024-12-20T00:00:00.000Z",
-    "nights": 5,
-    "totalPrice": 2975,
-    "status": "pending"
-  },
-  {
-    "id": "1733332348020",
-    "userId": "2",
-    "roomId": "4",
-    "date": "2024-12-21T00:00:00.000Z",
-    "nights": 2,
-    "totalPrice": 1190,
-    "status": "paid"
-  },
-  {
     "id": "1733342297936",
     "userId": "3",
     "roomId": "3",
@@ -81,12 +45,21 @@
     "status": "paid"
   },
   {
-    "id": "1733681911716",
+    "id": "1733414004024",
     "userId": "2",
-    "roomId": "3",
-    "date": "2024-12-28T00:00:00.000Z",
-    "nights": 1,
-    "totalPrice": 260,
+    "roomId": "2",
+    "date": "2024-12-21T00:00:00.000Z",
+    "nights": 12,
+    "totalPrice": 960,
     "status": "pending"
+  },
+  {
+    "id": "1733692854734",
+    "userId": "2",
+    "roomId": "2",
+    "date": "2034-12-08T00:00:00.000Z",
+    "nights": 1,
+    "totalPrice": 80,
+    "status": "paid"
   }
 ]

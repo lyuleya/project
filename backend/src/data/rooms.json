@@ -1,55 +1,55 @@
 [
   {
     "id": "1",
-    "title": "Red room",
-    "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
+    "title": "Standart room",
+    "description": "A cozy and well-furnished room tailored for solo travelers. It features a comfortable single bed, a work desk for productivity, and a flat-screen TV for entertainment. The room is equipped with free Wi-Fi, air conditioning, and a private bathroom, making it an excellent choice for a short or business stay.",
     "guests": 1,
-    "price": 145,
+    "price": 50,
     "count": 2,
     "image": "/rooms/room1.webp"
   },
   {
     "id": "2",
-    "title": "Grand",
-    "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
+    "title": "Double room",
+    "description": "A thoughtfully designed room ideal for couples or two travelers. It includes a spacious double bed, a seating area, and a modern en-suite bathroom. Guests can enjoy complimentary Wi-Fi, air conditioning, and a flat-screen TV. The room combines comfort and style, ensuring a restful and enjoyable stay.",
     "guests": 2,
-    "price": 795,
+    "price": 80,
     "count": 3,
     "image": "/rooms/room4.webp"
   },
   {
     "id": "3",
-    "title": "One way",
-    "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
+    "title": "Superior room",
+    "description": "A larger and more refined option for small families or groups of friends. This room features a queen-size bed and an additional single bed, perfect for accommodating three guests comfortably. It offers upgraded furnishings, a mini-fridge, a coffee maker, and a modern bathroom with premium toiletries. A perfect choice for longer stays.",
     "guests": 3,
-    "price": 260,
+    "price": 120,
     "count": 1,
     "image": "/rooms/room3.webp"
   },
   {
     "id": "4",
-    "title": "Perfect",
-    "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
+    "title": "Deluxe room with ocean view",
+    "description": "Experience luxury in this beautifully designed room with stunning ocean views. The room includes a king-size bed, a private balcony to soak in the scenery, and premium amenities such as a mini-bar, a coffee machine, and luxury bedding. The modern bathroom features a walk-in shower and high-end toiletries, making it an unforgettable stay.",
     "guests": 3,
-    "price": 595,
+    "price": 200,
     "count": 2,
     "image": "/rooms/room2.webp"
   },
   {
     "id": "5",
-    "title": "Blue room",
-    "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
+    "title": "Standart room with balcony",
+    "description": "This cozy room offers the perfect blend of comfort and charm, featuring a single bed and a private balcony where guests can unwind and enjoy the fresh air. It also includes free Wi-Fi, air conditioning, a flat-screen TV, and a private bathroom, making it ideal for solo travelers seeking a relaxing experience.",
     "guests": 2,
-    "price": 395,
+    "price": 75,
     "count": 3,
     "image": "/rooms/room5.webp"
   },
   {
     "id": "6",
-    "title": "Child",
-    "description": "Experience ultimate comfort in our Deluxe Room, featuring a spacious layout with modern decor and premium amenities. This room offers a queen-sized bed, a cozy sitting area, and a private balcony with breathtaking views of the city. Enjoy complimentary Wi-Fi, a flat-screen TV, and a well-equipped ensuite bathroom with luxury toiletries. Perfect for relaxing after a long day of exploring or business meetings.",
+    "title": "Triple room",
+    "description": "A spacious and practical option for families or groups, this room includes one queen-size bed and an additional single bed. Guests will appreciate the ample space, modern amenities like free Wi-Fi, a flat-screen TV, and a seating area. The room is designed for comfort and convenience, making it a great choice for extended stays.",
     "guests": 1,
-    "price": 195,
+    "price": 140,
     "count": 1,
     "image": "/rooms/room6.webp"
   }

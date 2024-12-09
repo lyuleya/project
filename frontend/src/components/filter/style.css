@@ -8,4 +8,5 @@
   .filter-button:hover {
     background-color: var(--color-blue-300);
     border-color: var(--color-blue-300);
+    color: var(--color-white);
   }

@@ -1,9 +1,20 @@
 .room-details-title {
+  font-weight: bold;
   font-size: 2rem;
   color: var(--color-blue-300);
 }
 
 .room-details-price {
+  font-weight: bold;
   font-size: 1.5rem;
   color: var(--color-blue-300);
+}
+
+.page-title {
+  color: var(--color-blue-400);
+}
+
+.room-details-image {
+  max-height: 400px;
+  object-fit: cover;
 }

@@ -26,5 +26,12 @@
     "email": "zxc@gmail.com",
     "password": "zxc",
     "role": "user"
+  },
+  {
+    "id": "1733756727214",
+    "name": "bla bla bla",
+    "email": "bla@bla.com",
+    "password": "bla123",
+    "role": "user"
   }
 ]

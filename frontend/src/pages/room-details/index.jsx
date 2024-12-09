@@ -67,35 +67,32 @@ const RoomDetails = ({ user }) => {
 
   return (
     <main className="container my-5">
-      <h1 className="text-center mb-5">Room Details</h1>
+      <h1 className="text-center mb-5 page-title">Room Details</h1>
       <div className="row g-4">
         <div className="col-md-6">
           <img
             src={image}
-            sizes="(max-width: 768px) 400px, 800px"
             width="800"
             height="600"
             loading="lazy"
-            className="img-fluid rounded shadow"
+            className="img-fluid rounded shadow room-details-image"
             alt={title}
           />
         </div>
         <div className="col-md-6">
           <div className="d-flex flex-column justify-content-between h-100 border p-4 rounded shadow-sm">
             <div>
-              <h3 className="mb-3 fw-bold room-details-title">{title}</h3>
-              <p className="text-muted mb-2">Guests: {guests}</p>
-              <p className="text-secondary">{description}</p>
+              <h3 className="mb-3 room-details-title">{title}</h3>
+              <p className="mb-2">Guests: {guests}</p>
+              <p className="text-muted">{description}</p>
             </div>
             <div>
               <div className="mb-4">
-                <span className="d-block text-muted">Price</span>
-                <strong className="h4 room-details-price">
-                  ${price} per night
-                </strong>
+                <span className="d-block">Price</span>
+                <h4 className="room-details-price">${price} per night</h4>
               </div>
               <Button className="btn w-100 custom-button" onClick={toggleModal}>
-                Book this Room
+                Book this room
               </Button>
             </div>
           </div>

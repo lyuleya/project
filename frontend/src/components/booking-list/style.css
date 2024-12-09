@@ -4,7 +4,8 @@
   
   .booking-list-title {
     font-size: 2rem;
-    color: var(--color-blue-300);
+    font-weight: bold;
+    color: var(--color-blue-400);
   }
   
   .booking-list-paid-status {

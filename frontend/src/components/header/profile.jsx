@@ -41,7 +41,7 @@ const Profile = ({ user, onLogout }) => {
               </Button>
             </li>
             <li>
-              <hr className="dropdown-divider" />
+              <hr className="dropdown-divider my-0" />
             </li>
           </>
         )}

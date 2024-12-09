@@ -14,7 +14,7 @@ const BookingItemRow = ({ booking }) => {
         <strong>Dates:</strong> {dateRange}
       </p>
       <p>
-        <strong>Total:</strong> ${booking.totalPrice}
+        <strong>Total price:</strong> ${booking.totalPrice}
       </p>
       <p
         className={

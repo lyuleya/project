@@ -2,7 +2,7 @@
 
 ## About the Project
 
-The Hotel Booking Management Application is designed to streamline the process of managing room bookings. It provides functionality for both regular users and hotel administrators, offering a seamless experience for booking and tracking room reservations.
+[The Hotel Booking Management Application](https://hotel_booking_project.surge.sh/) is designed to streamline the process of managing room bookings. It provides functionality for both regular users and hotel administrators, offering a seamless experience for booking and tracking room reservations.
 
 ## Features
 
@@ -58,19 +58,13 @@ Ensure the following are installed:
    npm install
    ```
 
-   - Create a `.env` file. Add the content from `.env.example`. Example:
-
-   ```bash
-   PORT=5001
-   ```
-
    - Start the backend server:
 
    ```bash
    npm run start
    ```
 
-   The backend server will run on http://localhost:5001 (port setup in .env)
+   The backend server will run on http://localhost:5001
 
 3. #### Frontend Setup
 
@@ -84,12 +78,6 @@ Ensure the following are installed:
 
    ```bash
    npm install
-   ```
-
-   - Create a `.env` file. Add the content from `.env.example`. Make sure the port matches the one specified in the backend's `.env` file. Example:
-
-   ```bash
-   VITE_API_BASE_URL=http://localhost:5001/api
    ```
 
    - Run the application locally:
@@ -112,4 +100,7 @@ Ensure the following are installed:
 ## Notes
 
 - Ensure the backend server is running before starting the frontend application.
-- Verify that the ports in the backend `.env` and frontend `.env` match to enable proper communication.
+
+## DEMO
+
+- [https://hotel_booking_project.surge.sh/](https://hotel_booking_project.surge.sh/)
