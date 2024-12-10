@@ -15,6 +15,13 @@
   },
   {
     "id": "3",
+    "name": "John Doe",
+    "email": "doe@gmail.com",
+    "password": "doe",
+    "role": "user"
+  },
+  {
+    "id": "4",
     "name": "Luda",
     "email": "luda.u@gmail.com",
     "password": "luda123",

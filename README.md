@@ -103,4 +103,15 @@ Ensure the following are installed:
 
 ## DEMO
 
-- [https://hotel_booking_project.surge.sh/](https://hotel_booking_project.surge.sh/)
+[https://hotel_booking_project.surge.sh/](https://hotel_booking_project.surge.sh/)
+
+- **Admin:**
+  ```
+  email: admin@gmail.com
+  password: admin
+  ```
+- **User:**
+  ```
+  email: user@gmail.com
+  password: user
+  ```
