@@ -10,8 +10,8 @@ const loginUser = async (email, password) => {
   return response.data;
 };
 
-const registerUser = async (name, email, password) => {
-  await axios.post(`${API_URL}/auth/sign-up`, { name, email, password });
+const registerUser = async (name, email, password, role) => {
+  await axios.post(`${API_URL}/auth/sign-up`, { name, email, password, role });
 };
 
 const fetchRooms = async () => {
