@@ -8,30 +8,16 @@
   },
   {
     "id": "2",
-    "name": "User QWE",
-    "email": "qwe@gmail.com",
-    "password": "qwe",
+    "name": "User",
+    "email": "user@gmail.com",
+    "password": "user",
     "role": "user"
   },
   {
     "id": "3",
-    "name": "User ASD",
-    "email": "asd@gmail.com",
-    "password": "asd",
-    "role": "user"
-  },
-  {
-    "id": "4",
-    "name": "User ZXC",
-    "email": "zxc@gmail.com",
-    "password": "zxc",
-    "role": "user"
-  },
-  {
-    "id": "1733756727214",
-    "name": "bla bla bla",
-    "email": "bla@bla.com",
-    "password": "bla123",
+    "name": "Luda",
+    "email": "luda.u@gmail.com",
+    "password": "luda123",
     "role": "user"
   }
 ]
