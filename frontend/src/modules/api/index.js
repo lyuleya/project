@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:5001/api";
+// const API_URL = "http://localhost:5001/api";
+const API_URL = "https://project-ovxg.onrender.com/api";
 
 const loginUser = async (email, password) => {
   const response = await axios.post(`${API_URL}/auth/sign-in`, {
@@ -10,8 +11,8 @@ const loginUser = async (email, password) => {
   return response.data;
 };
 
-const registerUser = async (name, email, password) => {
-  await axios.post(`${API_URL}/auth/sign-up`, { name, email, password });
+const registerUser = async (name, email, password, role) => {
+  await axios.post(`${API_URL}/auth/sign-up`, { name, email, password, role });
 };
 
 const fetchRooms = async () => {
