@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// const API_URL = "http://localhost:5001/api";
-const API_URL = "https://project-ovxg.onrender.com/api";
+const API_URL = "http://localhost:5001/api";
 
 const loginUser = async (email, password) => {
   const response = await axios.post(`${API_URL}/auth/sign-in`, {
